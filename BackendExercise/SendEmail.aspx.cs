@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿/******************************************************************************
+* Created By: Sumit Choudhary
+* Created On: 27th April 2019
+* Purpose: Sends Email. 
+********************************************************************************/
+
+using BackendExercise.Utility.commonClass;
+using BackendExercise.Utility.models;
+using System;
+using System.Web.Services;
 
 namespace BackendExercise
 {
@@ -12,6 +16,31 @@ namespace BackendExercise
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// Logs the email sent.
+        /// </summary>
+        /// <param name="emailObj"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public static bool SendsEmail(Email emailObj)
+        {
+            bool returnFlag = false;
+            try
+            {
+                if (Validator.ValidateEmail(emailObj.ToEmail) && Validator.ValidateEmail(emailObj.FromEmail)
+                    && !string.IsNullOrWhiteSpace(emailObj.Subject) && !string.IsNullOrWhiteSpace(emailObj.Body))
+                {
+                    //Log file
+                    returnFlag = new FileLogger().LogFile(Constants.CommonConstants.EmailSentMsg, Constants.CommonConstants.EmailLogFileName);
+                }
+            }
+            catch (Exception)
+            {
+                //Log the error here.
+            }
+            return returnFlag;
         }
     }
 }

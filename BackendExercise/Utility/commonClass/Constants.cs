@@ -9,6 +9,17 @@ namespace BackendExercise.Utility.commonClass
     public class Constants
     {
         /// <summary>
+        /// Common constants here.
+        /// </summary>
+        public struct CommonConstants
+        {
+            public const string EmailSentMsg = "Email Sent";
+            public const string UserCreatedMsg = "User Created";
+            public const string EmailLogFileName = "EmailSent";
+            public const string UserLogFileName = "UserCreated";
+        }
+
+        /// <summary>
         /// Constants related to webConfig.
         /// </summary>
         public struct WebConfigConstants
