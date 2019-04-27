@@ -112,6 +112,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\commonClass\CommonFunctions.cs" />
+    <Compile Include="Utility\commonClass\Constants.cs" />
+    <Compile Include="Utility\commonClass\Validator.cs" />
+    <Compile Include="Utility\models\Email.cs" />
+    <Compile Include="Utility\models\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
+    <Folder Include="styles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
